@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "undefined_core",
+  "version": "${version}",
+  "name": "Undefined Core",
+  "description": "Core mod for all my mods",
+  "authors": [
+    "Ricky12Awesome"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "icon": "assets/undefined_core/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.github.ricky12awesome.fabric.uc.UndefinedCore"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "com.github.ricky12awesome.fabric.uc.UndefinedCoreClient"
+      }
+    ]
+  },
+  "mixins": [
+    "undefined_core.mixins.json"
+  ],
+  "requires": {
+    "fabric-language-kotlin": ">=1.3.50",
+    "libgui": ">=1.3.1"
+  },
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
