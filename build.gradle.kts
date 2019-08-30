@@ -14,10 +14,9 @@ plugins {
   kotlin("jvm") version "1.3.50"
   id("fabric-loom") version "0.2.5-SNAPSHOT"
   id("parseLangFile") version "1.1:1e3345d"
-  id("maven-publish")
+  `maven-publish`
 }
 
-// Probably don't need some of these.
 repositories {
   maven(url = "http://maven.fabricmc.net/")
   maven(url = "https://kotlin.bintray.com/kotlinx")
@@ -25,6 +24,7 @@ repositories {
   maven(url = "http://server.bbkr.space:8081/artifactory/libs-release/")
   maven(url = "https://dl.bintray.com/shedaniel/cloth-config-2")
   mavenCentral()
+  mavenLocal()
   jcenter()
 }
 
@@ -35,12 +35,6 @@ dependencies {
 
   modImplementation(group = "io.github.prospector", name = "modmenu", version = modMenuVersion)
 
-  modCompile(group = "com.github.modmuss50", name = "OptiFabric", version = "e1834b016f")
-  compile(group = "org.zeroturnaround", name = "zt-zip", version = "1.13")
-  compile(group = "net.fabricmc", name = "stitch", version = "0.2.1.61") {
-    isTransitive = false
-  }
-
   modCompile(group = "me.shedaniel.cloth", name = "config-2", version = clothConfigVersion)
   modCompile(group = "io.github.cottonmc", name = "LibGui", version = libGuiVersion) {
     exclude(module = "modmenu")
@@ -48,6 +42,38 @@ dependencies {
 
   minecraft(group = "com.mojang", name = "minecraft", version = minecraftVersion)
   mappings(group = "net.fabricmc", name = "yarn", version = yarnMappings)
+}
+
+val sourcesJar by tasks.creating(Jar::class) {
+  archiveClassifier.set("sources")
+
+  from(sourceSets["main"].allSource)
+  dependsOn(JavaPlugin.CLASSES_TASK_NAME)
+}
+
+val javadocJar by tasks.creating(Jar::class) {
+  archiveClassifier.set("javadoc")
+
+  from(project.tasks["javadoc"])
+  dependsOn(JavaPlugin.JAVADOC_TASK_NAME)
+}
+
+publishing {
+  publications {
+    create<MavenPublication>("maven") {
+      artifact(sourcesJar) {
+        builtBy(tasks.remapSourcesJar)
+      }
+
+      artifact(tasks["remapJar"])
+
+      artifact(javadocJar)
+    }
+  }
+
+  repositories {
+    mavenLocal()
+  }
 }
 
 kotlin.sourceSets["main"].kotlin.srcDirs("src/")
@@ -71,25 +97,4 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<JavaCompile> {
   options.encoding = "UTF-8"
-}
-
-tasks {
-  val sourcesJar by creating(Jar::class) {
-    archiveClassifier.set("sources")
-
-    from(sourceSets["main"].allSource)
-    dependsOn(JavaPlugin.CLASSES_TASK_NAME)
-  }
-
-  val javadocJar by creating(Jar::class) {
-    archiveClassifier.set("javadoc")
-
-    from(project.tasks["javadoc"])
-    dependsOn(JavaPlugin.JAVADOC_TASK_NAME)
-  }
-
-  artifacts {
-    add("archives", sourcesJar)
-    add("archives", javadocJar)
-  }
 }

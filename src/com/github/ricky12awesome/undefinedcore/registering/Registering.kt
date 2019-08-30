@@ -1,8 +1,8 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package com.github.ricky12awesome.fabric.uc.registering
+package com.github.ricky12awesome.undefinedcore.registering
 
-import com.github.ricky12awesome.fabric.uc.utils.initializeObjectClasses
+import com.github.ricky12awesome.undefinedcore.utils.initializeObjectClasses
 import net.minecraft.block.Block
 import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.item.BlockItem

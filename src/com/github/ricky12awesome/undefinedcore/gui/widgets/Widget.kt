@@ -1,4 +1,4 @@
-package com.github.ricky12awesome.fabric.uc.gui.widgets
+package com.github.ricky12awesome.undefinedcore.gui.widgets
 
 import net.minecraft.client.gui.Drawable
 import kotlin.properties.Delegates
@@ -6,8 +6,10 @@ import kotlin.properties.Delegates
 val Widget.x get() = (parent?.pos?.x ?: 0) + pos.x
 val Widget.y get() = (parent?.pos?.y ?: 0) + pos.y
 
-fun Widget.pos(x: Int, y: Int) = WidgetPos(this, x, y)
-fun Widget.size(width: Int, height: Int) = WidgetSize(this, width, height)
+fun Widget.pos(x: Int, y: Int) =
+  WidgetPos(this, x, y)
+fun Widget.size(width: Int, height: Int) =
+  WidgetSize(this, width, height)
 
 fun Widget.addWidget(widget: Widget) {
   children.add(widget)

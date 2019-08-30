@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/Ricky12Awesome/UndefinedCore.svg)](https://jitpack.io/#Ricky12Awesome/UndefinedCore)
+
 # Undefined Core
 This is the core mod fora all my mods
 
@@ -9,6 +11,6 @@ repositories {
 }
 
 dependencies {
-  modCompile(group = "com.github.Ricky12Awesome", name = "UndefinedCore", version = "1.0.0")
+  modCompile(group = "com.github.Ricky12Awesome", name = "UndefinedCore", version = "1.1.0")
 }
 ```

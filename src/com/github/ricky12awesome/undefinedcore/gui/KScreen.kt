@@ -1,6 +1,6 @@
-package com.github.ricky12awesome.fabric.uc.gui
+package com.github.ricky12awesome.undefinedcore.gui
 
-import com.github.ricky12awesome.fabric.uc.gui.widgets.Widget
+import com.github.ricky12awesome.undefinedcore.gui.widgets.Widget
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.Element
 import net.minecraft.client.gui.screen.Screen

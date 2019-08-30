@@ -1,4 +1,4 @@
-package com.github.ricky12awesome.fabric.uc.registering
+package com.github.ricky12awesome.undefinedcore.registering
 
 import net.minecraft.block.Block
 import net.minecraft.block.entity.BlockEntity
@@ -25,4 +25,4 @@ fun <T : BlockEntity> blockEntityTypeOf(
   supplier: () -> T,
   vararg blocks: Block,
   type: Type<*>? = null
-): BlockEntityType<T> = BlockEntityType.Builder.create(Supplier(supplier)).build(type)
+): BlockEntityType<T> = BlockEntityType.Builder.create(Supplier(supplier), *blocks).build(type)
