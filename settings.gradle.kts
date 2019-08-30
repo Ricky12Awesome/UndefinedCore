@@ -1,3 +1,5 @@
+rootProject.name = "UndefinedCore"
+
 pluginManagement {
   repositories {
     jcenter()

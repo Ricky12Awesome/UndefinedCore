@@ -1,4 +1,4 @@
-package com.github.ricky12awesome.fabric.uc.utils
+package com.github.ricky12awesome.undefinedcore.utils
 
 import net.minecraft.block.Block
 import net.minecraft.block.Material

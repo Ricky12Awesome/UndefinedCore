@@ -1,6 +1,6 @@
-package com.github.ricky12awesome.fabric.uc.gui.widgets
+package com.github.ricky12awesome.undefinedcore.gui.widgets
 
-import com.github.ricky12awesome.fabric.uc.utils.randomColor
+import com.github.ricky12awesome.undefinedcore.utils.randomColor
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.Element
 import kotlin.math.roundToInt

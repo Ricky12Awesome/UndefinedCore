@@ -1,4 +1,4 @@
-package com.github.ricky12awesome.fabric.uc
+package com.github.ricky12awesome.undefinedcore
 
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.api.ModInitializer

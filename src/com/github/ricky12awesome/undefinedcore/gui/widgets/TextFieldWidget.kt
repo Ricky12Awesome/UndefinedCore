@@ -1,4 +1,4 @@
-package com.github.ricky12awesome.fabric.uc.gui.widgets
+package com.github.ricky12awesome.undefinedcore.gui.widgets
 
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.font.TextRenderer
